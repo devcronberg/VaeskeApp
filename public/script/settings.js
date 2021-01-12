@@ -24,7 +24,7 @@ export const vaeskeData = [
     indhold: 1000,
   },
   {
-    navn: "Meget stor flaske",
+    navn: "Kæmpe flaske",
     indhold: 1500,
   },
 ];

@@ -19,7 +19,11 @@ $(document).ready(async () => {
 
   const knapperDiv = $("#knapper");
   settings.vaeskeData.forEach((v) => {
-    const knapKontroller = opretDivMedKnap(v.navn, "vaeskeData", v);
+    const knapKontroller = opretDivMedKnap(
+      v.navn + " <br />(" + v.indhold + " ml)",
+      "vaeskeData",
+      v
+    );
     knapperDiv.append(knapKontroller[0]);
     $(knapKontroller[1]).click(async function () {
       const db = await idb.openDB("vaeskeData", 3);
@@ -69,6 +73,6 @@ $(document).ready(async () => {
     });
 
     $("#indtaget").html(ul);
-    $("#summering").html(sum + " ml drukket idag");
+    $("#summering").html(sum + " ml drukket " + visDataForDato);
   }
 });
