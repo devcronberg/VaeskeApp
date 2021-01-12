@@ -1,8 +1,52 @@
-import * as settings from "./settings.js";
+let visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"));
+
+const vaeskeData = [
+  {
+    navn: "Lille kop",
+    indhold: 100,
+  },
+  {
+    navn: "Mellem kop",
+    indhold: 200,
+  },
+  {
+    navn: "Stor kop",
+    indhold: 300,
+  },
+  {
+    navn: "Lille flaske",
+    indhold: 330,
+  },
+  {
+    navn: "Mellem flaske",
+    indhold: 500,
+  },
+  {
+    navn: "Stor flaske",
+    indhold: 1000,
+  },
+  {
+    navn: "Kæmpe flaske",
+    indhold: 1500,
+  },
+];
+
+const navigationData = [
+  {
+    navn: "Se dagen før",
+    funktion: () => (visDataForDato = visDataForDato.subtract(1, "day")),
+  },
+  {
+    navn: "Se idag",
+    funktion: () => (visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"))),
+  },
+  {
+    navn: "Se dagen efter",
+    funktion: () => (visDataForDato = visDataForDato.add(1, "day")),
+  },
+];
 
 $(document).ready(async () => {
-  let visDataForDato = new Date().toISOString().substr(0, 10);
-
   idb.openDB("vaeskeData", 3, {
     upgrade(db, oldVersion, newVersion, transaction) {
       db.createObjectStore("indtaget", {
@@ -15,28 +59,37 @@ $(document).ready(async () => {
     },
   });
 
-  visSum(visDataForDato);
-
-  const knapperDiv = $("#knapper");
-  settings.vaeskeData.forEach((v) => {
+  const knapperVaeske = $("#knapper");
+  vaeskeData.forEach((v) => {
     const knapKontroller = opretDivMedKnap(
       v.navn + " <br />(" + v.indhold + " ml)",
       "vaeskeData",
       v
     );
-    knapperDiv.append(knapKontroller[0]);
+    knapperVaeske.append(knapKontroller[0]);
     $(knapKontroller[1]).click(async function () {
       const db = await idb.openDB("vaeskeData", 3);
-      const date = new Date();
       db.add("indtaget", {
-        dag: date.toISOString().substr(0, 10),
-        tid: date.toISOString().substr(11, 8),
+        dag: visDataForDato.format("YYYY-DD-MM"),
+        tid: dayjs().format("HH:mm:ss"),
         vaeskeData: $(this).data("vaeskeData"),
       });
       db.close();
       visSum(visDataForDato);
     });
   });
+
+  const knapperNavigation = $("#navigation");
+  navigationData.forEach((v) => {
+    const knapKontroller = opretDivMedKnap(v.navn);
+    knapperNavigation.append(knapKontroller[0]);
+    $(knapKontroller[1]).click(function () {
+      v.funktion();
+      visSum(visDataForDato);
+    });
+  });
+
+  visSum(visDataForDato);
 
   function opretDivMedKnap(html, dataKey, dataValue) {
     const div = $("<div />");
@@ -47,9 +100,16 @@ $(document).ready(async () => {
     return [div, knap];
   }
 
-  async function visSum(dato) {
+  async function visSum() {
+    const knapIdag = $("#navigation div:nth-child(2)");
+    if (visDataForDato.isSame(dayjs(dayjs().format("YYYY-MM-DD")))) {
+      knapIdag.hide();
+    } else {
+      knapIdag.show();
+    }
+
     const db = await idb.openDB("vaeskeData", 3);
-    const rng = IDBKeyRange.only(dato);
+    const rng = IDBKeyRange.only(visDataForDato.format("YYYY-DD-MM"));
     let indtaget = await db.getAllFromIndex("indtaget", "dagIndex", rng);
     db.close();
     let sum = 0;
@@ -71,8 +131,7 @@ $(document).ready(async () => {
       li.append(a);
       ul.append(li);
     });
-
     $("#indtaget").html(ul);
-    $("#summering").html(sum + " ml drukket " + visDataForDato);
+    $("#summering").html(visDataForDato.format("D/M-YY") + " er der drukket " + sum + " ml");
   }
 });

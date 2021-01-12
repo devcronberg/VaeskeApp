@@ -13,7 +13,11 @@ body {
 
 #summering {
   width: 100%;
+  margin-top: 3px;
+  border-bottom: 3px;
   text-align: center;
+  font-weight: bold;
+  border-top: 1px solid black;
 }
 
 #knapper {
@@ -25,16 +29,26 @@ body {
 }
 
 #knapper div {
-  margin: 5px;
-  width: 120px;
+  margin: 3px;
 }
 
-#knapper div button {
-  width: 120px;
+#knapper button {
+  width: 105px;
   height: 50px;
 }
 
-#funktioner {
+#navigation div {
+  margin: 5px;
+}
+
+#navigation button {
+  font-size: 0.7em;
+  width: 90px;
+  height: 30px;
+}
+
+#funktioner,
+#navigation {
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -52,7 +66,8 @@ body {
   height: 45px;
 }
 
-#indtaget {
-  width: 400px;
-  margin: auto;
+#navigation {
+  border-bottom: 1px solid black;
+  padding: 3px;
+  margin: 3px;
 }
