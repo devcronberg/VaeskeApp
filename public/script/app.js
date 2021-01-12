@@ -100,13 +100,25 @@ $(document).ready(async () => {
     return [div, knap];
   }
 
-  async function visSum() {
+  function visNavigationKnapper() {
     const knapIdag = $("#navigation div:nth-child(2)");
+    const knapFrem = $("#navigation div:nth-child(3)");
+    knapIdag.show();
+    knapFrem.show();
+
     if (visDataForDato.isSame(dayjs(dayjs().format("YYYY-MM-DD")))) {
       knapIdag.hide();
-    } else {
-      knapIdag.show();
+      knapFrem.hide();
+      return;
     }
+    if (visDataForDato.isSame(dayjs(dayjs().subtract(1, "day").format("YYYY-MM-DD")))) {
+      knapFrem.hide();
+      return;
+    }
+  }
+
+  async function visSum() {
+    visNavigationKnapper();
 
     const db = await idb.openDB("vaeskeData", 3);
     const rng = IDBKeyRange.only(visDataForDato.format("YYYY-DD-MM"));
