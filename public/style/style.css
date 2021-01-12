@@ -1,0 +1,60 @@
+body {
+  margin: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header {
+  border-bottom: 1px solid black;
+}
+
+#header h3 {
+  text-align: center;
+  width: 100%;
+}
+
+#summering {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+#knapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#knapper div {
+  margin: 5px;
+  width: 100px;
+}
+
+#knapper div button {
+  width: 100px;
+  height: 45px;
+}
+
+#funktioner {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#funktioner div {
+  margin: 5px;
+  width: 100px;
+}
+
+#funktioner div button {
+  width: 100px;
+  height: 45px;
+}
+
+#indtaget {
+  width: 400px;
+  margin: auto;
+}
