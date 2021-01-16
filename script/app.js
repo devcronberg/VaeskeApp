@@ -1,4 +1,4 @@
-document.querySelector("#buildDate").innerHTML = "202101162333";
+document.querySelector("#buildDate").innerHTML = "202101162334";
 
 let visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"));
 
@@ -126,10 +126,10 @@ $(document).ready(async () => {
     let indtaget = await db.getAllFromIndex("indtaget", "dagIndex", rng);
     db.close();
     let sum = 0;
-    const ul = $("<ul/>");
+    const ul = $("<div/>");
     indtaget.forEach((v) => {
       sum += v.vaeskeData.indhold;
-      let li = $("<li />").html(`
+      let li = $("<div />").html(`
          ${v.tid} ${v.vaeskeData.navn} (${v.vaeskeData.indhold} ml)
        `);
       // const a = $("<a href=''>slet</a>");
