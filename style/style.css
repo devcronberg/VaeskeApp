@@ -16,6 +16,7 @@ body {
 #summering {
   width: 100%;
   margin-top: 3px;
+  padding-top: 3px;
   border-bottom: 3px;
   text-align: center;
   font-weight: bold;
