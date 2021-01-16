@@ -1,3 +1,3 @@
 node predeploy.js
-git commit * -m "."
+git commit *.* -m "."
 git push
