@@ -1,4 +1,4 @@
-document.querySelector("#buildDate").innerHTML = "202101162331";
+document.querySelector("#buildDate").innerHTML = "202101162333";
 
 let visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"));
 
@@ -81,16 +81,16 @@ $(document).ready(async () => {
     });
   });
 
-  // const knapperNavigation = $("#navigation");
-  // navigationData.forEach((v) => {
-  //   const knapKontroller = opretDivMedKnap(v.navn);
-  //   knapperNavigation.append(knapKontroller[0]);
-  //   $(knapKontroller[1]).click(function () {
-  //     v.funktion();
-  //     visNavigationKnapper();
-  //     visSum(visDataForDato);
-  //   });
-  // });
+  const knapperNavigation = $("#navigation");
+  navigationData.forEach((v) => {
+    const knapKontroller = opretDivMedKnap(v.navn);
+    knapperNavigation.append(knapKontroller[0]);
+    $(knapKontroller[1]).click(function () {
+      v.funktion();
+      visNavigationKnapper();
+      visSum(visDataForDato);
+    });
+  });
 
   visSum(visDataForDato);
 
@@ -132,19 +132,19 @@ $(document).ready(async () => {
       let li = $("<li />").html(`
          ${v.tid} ${v.vaeskeData.navn} (${v.vaeskeData.indhold} ml)
        `);
-      const a = $("<a href=''>slet</a>");
-      a.data("slet", v.id);
-      a.click(async function (e) {
-        e.preventDefault();
-        const db = await idb.openDB("vaeskeData", 3);
-        db.delete("indtaget", $(this).data("slet"));
-        db.close();
-        visSum(visDataForDato);
-      });
-      li.append(a);
+      // const a = $("<a href=''>slet</a>");
+      // a.data("slet", v.id);
+      // a.click(async function (e) {
+      //   e.preventDefault();
+      //   const db = await idb.openDB("vaeskeData", 3);
+      //   db.delete("indtaget", $(this).data("slet"));
+      //   db.close();
+      //   visSum(visDataForDato);
+      // });
+      // li.append(a);
       ul.append(li);
     });
-    $("#indtaget").html(ul);
     $("#summering").html(visDataForDato.format("D/M-YY") + " er der drukket " + sum + " ml");
+    $("#indtaget").html(ul);
   }
 });
