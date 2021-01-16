@@ -16,5 +16,13 @@
   "start_url": "/index.html",
   "scope": "/",
   "orientation": "portrait-primary",
-  "categories": ["health"]
+  "categories": ["health"],
+  "shortcuts": [
+    {
+      "name": "Væskeindtag",
+      "description": "Vis væskeindtag idag",
+      "url": "/"
+    }
+  ],
+  "lang": "Danish"
 }

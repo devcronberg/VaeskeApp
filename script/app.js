@@ -1,4 +1,4 @@
-document.querySelector("#buildDate").innerHTML = "202101170025";
+document.querySelector("#buildDate").innerHTML = "202101170033";
 
 let visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"));
 
