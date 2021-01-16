@@ -25,5 +25,13 @@
     <script src="script/dayjs.min.js" defer></script>
     <script src="script/index-min.js" defer></script>
     <script src="script/app.js" defer></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/serviceworker.js")
+          .then((r) => {})
+          .catch((e) => {});
+      }
+    </script>
   </body>
 </html>

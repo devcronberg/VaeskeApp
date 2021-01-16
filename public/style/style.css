@@ -1,5 +1,7 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #add8e6;
+  overflow-x: hidden;
 }
 
 #header {

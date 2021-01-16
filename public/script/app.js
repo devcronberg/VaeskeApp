@@ -85,6 +85,7 @@ $(document).ready(async () => {
     knapperNavigation.append(knapKontroller[0]);
     $(knapKontroller[1]).click(function () {
       v.funktion();
+      visNavigationKnapper();
       visSum(visDataForDato);
     });
   });
@@ -118,8 +119,6 @@ $(document).ready(async () => {
   }
 
   async function visSum() {
-    visNavigationKnapper();
-
     const db = await idb.openDB("vaeskeData", 3);
     const rng = IDBKeyRange.only(visDataForDato.format("YYYY-DD-MM"));
     let indtaget = await db.getAllFromIndex("indtaget", "dagIndex", rng);
