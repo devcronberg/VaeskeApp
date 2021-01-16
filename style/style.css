@@ -21,6 +21,7 @@ body {
   text-align: center;
   font-weight: bold;
   border-top: 1px solid black;
+  max-height: 999999px;
 }
 
 #knapper {
