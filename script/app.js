@@ -1,3 +1,5 @@
+document.querySelector("#buildDate").innerHTML = "202101162318";
+
 let visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"));
 
 const vaeskeData = [
