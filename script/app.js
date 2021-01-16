@@ -1,4 +1,4 @@
-document.querySelector("#buildDate").innerHTML = "202101162329";
+document.querySelector("#buildDate").innerHTML = "202101162331";
 
 let visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"));
 
@@ -81,16 +81,16 @@ $(document).ready(async () => {
     });
   });
 
-  const knapperNavigation = $("#navigation");
-  navigationData.forEach((v) => {
-    const knapKontroller = opretDivMedKnap(v.navn);
-    knapperNavigation.append(knapKontroller[0]);
-    $(knapKontroller[1]).click(function () {
-      v.funktion();
-      visNavigationKnapper();
-      visSum(visDataForDato);
-    });
-  });
+  // const knapperNavigation = $("#navigation");
+  // navigationData.forEach((v) => {
+  //   const knapKontroller = opretDivMedKnap(v.navn);
+  //   knapperNavigation.append(knapKontroller[0]);
+  //   $(knapKontroller[1]).click(function () {
+  //     v.funktion();
+  //     visNavigationKnapper();
+  //     visSum(visDataForDato);
+  //   });
+  // });
 
   visSum(visDataForDato);
 
