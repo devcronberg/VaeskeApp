@@ -1,6 +1,6 @@
 {
   "liveServer.settings.port": 5000,
-  "liveServer.settings.root": "public/",
+  "liveServer.settings.root": "/",
   "liveServer.settings.CustomBrowser": "chrome",
   "liveServer.settings.NoBrowser": false,
   "liveServer.settings.ignoreFiles": [
