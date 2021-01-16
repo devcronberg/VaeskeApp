@@ -71,7 +71,7 @@ $(document).ready(async () => {
       const db = await idb.openDB("vaeskeData", 3);
       db.add("indtaget", {
         dag: visDataForDato.format("YYYY-DD-MM"),
-        tid: dayjs().format("HH:mm:ss"),
+        tid: dayjs().format("HH:mm"),
         vaeskeData: $(this).data("vaeskeData"),
       });
       db.close();
