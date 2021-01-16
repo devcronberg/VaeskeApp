@@ -1,4 +1,4 @@
-let staticCacheNavn = "2202101162342";
+let staticCacheNavn = "2202101170018";
 
 self.addEventListener("install", function (e) {
   e.waitUntil(
@@ -12,8 +12,13 @@ self.addEventListener("install", function (e) {
         "/script/dayjs.min.js",
         "/script/index-min.js",
         "/script/jquery.min.js",
-        "/images/android-chrome-192x192.png",
-        "/images/android-chrome-512x512.png",
+        "/images/maskable_icon_x72.png",
+        "/images/maskable_icon_x96.png",
+        "/images/maskable_icon_x128.png",
+        "/images/maskable_icon_x144.png",
+        "/images/maskable_icon_x152.png",
+        "/images/maskable_icon_x384.png",
+        "/images/maskable_icon_x512.png",
         "/images/apple-touch-icon.png",
         "/images/favicon-16x16.png",
         "/images/favicon-32x32.png",
