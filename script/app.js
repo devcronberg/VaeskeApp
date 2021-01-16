@@ -1,4 +1,4 @@
-document.querySelector("#buildDate").innerHTML = "202101162334";
+document.querySelector("#buildDate").innerHTML = "202101162335";
 
 let visDataForDato = dayjs(dayjs().format("YYYY-MM-DD"));
 
@@ -132,16 +132,16 @@ $(document).ready(async () => {
       let li = $("<div />").html(`
          ${v.tid} ${v.vaeskeData.navn} (${v.vaeskeData.indhold} ml)
        `);
-      // const a = $("<a href=''>slet</a>");
-      // a.data("slet", v.id);
-      // a.click(async function (e) {
-      //   e.preventDefault();
-      //   const db = await idb.openDB("vaeskeData", 3);
-      //   db.delete("indtaget", $(this).data("slet"));
-      //   db.close();
-      //   visSum(visDataForDato);
-      // });
-      // li.append(a);
+      const a = $("<a href=''>slet</a>");
+      a.data("slet", v.id);
+      a.click(async function (e) {
+        e.preventDefault();
+        const db = await idb.openDB("vaeskeData", 3);
+        db.delete("indtaget", $(this).data("slet"));
+        db.close();
+        visSum(visDataForDato);
+      });
+      li.append(a);
       ul.append(li);
     });
     $("#summering").html(visDataForDato.format("D/M-YY") + " er der drukket " + sum + " ml");
