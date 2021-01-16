@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "app.netlify.keen_feynman_109c4e.twa",
+                   "sha256_cert_fingerprints": ["8E:EC:D4:95:BD:B9:19:51:59:90:40:DA:AC:2F:97:93:1B:B2:11:C9:41:A6:57:9E:82:AC:B4:88:F7:B0:8F:38"] }
+    }]
