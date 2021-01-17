@@ -1,4 +1,4 @@
-let staticCacheNavn = "2202101171012";
+let staticCacheNavn = "2202101171355";
 
 self.addEventListener("install", function (e) {
   e.waitUntil(
@@ -17,7 +17,6 @@ self.addEventListener("install", function (e) {
         "/images/apple-touch-icon.png",
         "/images/favicon-16x16.png",
         "/images/favicon-32x32.png",
-        "/favicon.ico",
       ]);
     })
   );
