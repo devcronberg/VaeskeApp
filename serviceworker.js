@@ -1,4 +1,4 @@
-let staticCacheNavn = "2202101191343";
+let staticCacheNavn = "2202101191344";
 
 self.addEventListener("install", function (e) {
   e.waitUntil(
